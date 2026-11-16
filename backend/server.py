@@ -157,6 +157,7 @@ official_origins = {
     'https://aurapass.org',
     'https://www.aurapass.org',
     'https://aurapass.vercel.app',
+    'https://aurra-pass.vercel.app',
     'https://aurapass-enterprise.vercel.app',
 }
 all_trusted_origins = list(configured_origins | official_origins)
@@ -169,8 +170,8 @@ def is_allowed_origin(origin):
         return True
     if origin in all_trusted_origins:
         return True
-    # Allow official AuraPass & RMS Vercel preview/production deployments
-    if re.match(r"^https:\/\/(aurapass|rms)(-[a-zA-Z0-9_-]+)?\.vercel\.app$", origin):
+    # Allow official AuraPass, AurraPass, and RMS Vercel preview/production deployments
+    if re.match(r"^https:\/\/(aurapass|aurra-pass|aurrapass|rms)(-[a-zA-Z0-9_-]+)?\.vercel\.app$", origin):
         return True
     return False
 
